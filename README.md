@@ -2,13 +2,7 @@
 
 The TalkDown interactive dialogue and narrative library tools.
 
-## Rationale
-
-There is no good open-source libraries for choice-based narrative and dialogue in interactive media (that we know of).
-Integrating story into mechanics should be a mission for furthering narrative-based games.
-
-Markdown is a great resource for both writers and developers. This is game development; where writers and developers
-(and musicians, artists, marketers, and so on) interact frequently. Seems like a perfect match!
+> Talkdown is worse than [Ink](https://github.com/inkle/ink). Use that instead!
 
 ## This Repository
 
