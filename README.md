@@ -6,7 +6,7 @@ Squid refers to:
 
 - Squid Language.
 - Squid Transpiler.
-- Squid Implementation.
+- Squid Engine.
 - Squid Editor.
   - Contains a JavaScript Squid Implementation.
 
@@ -103,8 +103,6 @@ This is an example `test.squid` file:
 # Libraries may be empty to act as placeholders.
 ```
 
-You can split stuff up into many files by including a manifest JSON file:
-
 ## Transpiler
 
 Any compiler for Squid should export to a single Squid JSON file. The default one is written in TypeScript
@@ -119,10 +117,13 @@ and takes a JSON manifest:
 
 Simply run `squid manifest.json`. The linter will spit out some warnings or errors if it finds any.
 
+You may want to know [how to implement a parser/transpiler for Squid](docs/transpiler.md).
+
 ### Linter
 
 The linter is part of the transpiler. It will detect:
 
+- [ERR] Syntax error; story not well-formed.
 - [ERR] Not exactly one main-level library call.
 - [ERR] Flag read but never set.
 - [ERR] Illegal assignment to given type.
@@ -144,23 +145,21 @@ at will.
 - You can jump to any library at any time.
 - You can see and edit any of the flags at any time.
 - You can see any of the engine's actions.
-  - You can write JavaScript actions in the inbuilt Squid Implementation.
+  - You can write JavaScript actions in the inbuilt Squid Engine.
 - You can save and load states at whim.
 - You can execute actions at whim.
 
 It allows you to fully play through the game you have written.
 
-## Implementations
+## Engines
 
-Implement an engine and API and create a map/dictionary data structure from string to callable. This gives a
-string-based interface to execute tasks in-game at whim.
+You can read on how to [implement Squid Engine here](docs/engine.md). The gist is this:
 
-Implement a way to read the JSON output (or deserialise the `.squid` file) and load in the files to memory on
-load.
-
-Implement a way to execute each node in-engine.
-
-And you're done! It's no more than 500 lines of Game Maker Language code.
+1. Implement an engine and API and create a map/dictionary data structure from string to callable. This gives a
+   string-based interface to execute tasks in-game at whim.
+2. Implement a way to read the JSON output (or deserialise the `.squid` file) and load in the files to memory on
+   load.
+3. Implement a way to execute each node in-engine.
 
 ## Modding
 
