@@ -44,21 +44,19 @@ This is an example `test.squid` file:
 # Choice A and B will continue the execution flow to the action below.
 # Choice C will jump back to the top of the file because it links to "Library Identifier".
 
-?{ action(arguments) }
 !{ action(arguments) }
 
-# Above, we executed an action twice. Actions are provided by name by the game engine.
+# Above, we executed an action. Actions are provided by name by the game engine.
 # It is important to know what actions are available before you use them.
-# Note that both statements are the same.
 
 > Character Name [mood]
-    You can display variables with this syntax: ?{ Location Name : Flag Name }.
+    You can display variables with this syntax: {{ Location Name : Flag Name }}.
 
-    You can display the return result of actions (if any) with the same syntax: ?{ action(arguments) }.
+    You can display the return result of actions (if any) with the same syntax: {{ action(arguments) }}.
 
     Variables have types but are stored as strings. They can be a string, a float, an integer, and a boolean.
 
-    Don't do math using this. If you must, the engine should define stuff like add(a, b) etc.
+    Don't do math using this. If you must, the engine should define stuff like this.
 
 # You can set arbitrary flags easily with custom whitespace.
 
@@ -69,26 +67,44 @@ This is an example `test.squid` file:
 
 # Including using evaluated actions (as the return is calculated):
 
-! [int] Flag Name = ?{ action(arguments) }
+! [int] Flag Name = {{ action(arguments) }}
 
 # And expression assignments (note all expressions of equality are done with ?() syntax):
 
-! [int] Flag Name = ?( ?{ Location Name : Flag Name } == Something )
+! [int] Flag Name = ?( {{ Location Name : Flag Name }} == Something )
+
+# The "Something" is parsed as a string and is strictly compared to the flag retrieved. If the types don't match,
+# the result is a compilation error. Type mismatch here is the same as "string cannot be coerced".
+
+# Advanced: You can use the <> syntax in variables in order to use string variables inside variables:
+
+! [int] <My Character> : Is Happy = ?( {{ <My Location> : Repository }} == {{ Best Narrative Engine }} )
+
+# The above statement is one of the more complicated assignments. Let's say we have the following variable values:
+
+# My Character = "Inkling"
+# My Location = "GitHub"
+# Best Narrative Engine = "Squid"
+# GitHub : Repository = "Squid"
+
+# The evaluation given these variable values will end up as:
+
+! [int] Inkling : Is Happy = ?( {{ GitHub : This Repository }} == {{ Best Narrative Engine }} )
+
+# ...which evaluates to `true`.
 
 # All of this works for ephemeral/local variables. But these are destroyed when the next library is activated.
 # Use them sparingly!
 
 * [int]  Variable Name  = New Value
-* [bool] Variable Name  = ?{ action(arguments) }
+* [bool] Variable Name  = {{ action(arguments) }}
 
-# You can perform basic evaluations except there really isn't any inbuilt string manipulation syntax.
+# You can perform basic evaluations except there isn't any in-built string manipulation syntax.
 
 > Character Name [mood]
     Choices can be conditionally locked if there's a ?(...) after the choice name.
 
     The expression inside the ?(...) calculate the predicate.
-
-    Note that it should be 
 
     >> Choice A ?( ?{ NPC Name : Flag Name } < Something )  !  action(arguments)
     >> Choice B ?( Flag Name == Something Else )           ->  Another Library Identifier
@@ -110,7 +126,7 @@ and takes a JSON manifest:
 
 ```json
 {
-  "manifest": ["a.squid", "../b.squid", "foo/c.squid"],
+  "project": ["a.squid", "../b.squid", "foo/c.squid"],
   "output": "squid.json"
 }
 ```
