@@ -106,9 +106,9 @@ This is an example `test.squid` file:
 
     The expression inside the ?(...) calculate the predicate.
 
-    >> Choice A ?( ?{ NPC Name : Flag Name } < Something )  !  action(arguments)
-    >> Choice B ?( Flag Name == Something Else )           ->  Another Library Identifier
-    >> Choice C                                            ->  Library Identifier
+    >> Choice A ?( {{ NPC Name : Flag Name }} < Something )  !  action(arguments)
+    >> Choice B ?( {{ Flag Name }} == Something Else )       -> Another Library Identifier
+    >> Choice C                                              -> Library Identifier
 
     # If the expressions in choice A or B are not present, they will be disabled.
 
