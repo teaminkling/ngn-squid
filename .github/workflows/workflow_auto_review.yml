@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+      - "i-*"
+
+# For the wildcard non-main branches, once they exist, submit a draft PR.
+
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: pull-request
+      uses: repo-sync/pull-request@v2
+      with:
+        destination_branch: "main"
+        pr_title: "WIP: Pulling ${{ github.ref }} into the main branch"
+        pr_template: ".github/pull_request_template.md"
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        pr_draft: true
+        pr_allow_empty: true

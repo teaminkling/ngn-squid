@@ -1,6 +1,6 @@
 ---
-name: Minor Feature or Enhancement Request
-about: Suggest a new product enhancement or minor feature.
+name: Feature Request
+about: Suggest a new (minor) feature. See Discussions for major features.
 title: ''
 labels: enhancement
 assignees: ''
