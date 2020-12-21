@@ -16,6 +16,8 @@ a simple API.
 
 ## The Specification
 
+> You are reading `v0.1.0` of the specification.
+
 This is an example `test.squid` file:
 
 ```squid
