@@ -6,7 +6,7 @@ This document explains how to implement a Squid transpiler.
 
 ### 1. Manifest
 
-Read the manifest to find all of the files in this project in order. The manifest has the format:
+Read the manifest to find the files in this project in order. The manifest has the format:
 
 ```json
 {
@@ -32,7 +32,7 @@ In the manifest example above, we read the file, line by line, following the rul
 2. All completely empty lines/whitespace-only lines are skipped over.
 3. All lines that start with `#` are skipped over.
 4. `>` prefix indicates the active character and mood. The character and mood information is added to the
-   metainformation.
+   meta-information.
 5. All lines that start with two whitespace characters or more are associated with the active mode. This
    enters a mode that allows special parsing of conditional statements with a (not regex) pattern `?{...}`.
 6. These are turned into one continuous string where each newline is made into a single whitespace character and there
@@ -44,12 +44,12 @@ In the manifest example above, we read the file, line by line, following the rul
    active character and mood are set to nothing.
 10. The `!` prefix has some modes:
     1. `!{` prefix indicates an action is to be taken. Whatever is inside the brackets is simply added as an action.
-        The action parsed is added to the metainformation.
+       The action parsed is added to the meta-information.
     2. `![` prefix indicates that a variable is about to be assigned. The format is
        `! [type] name : with : categories = value or expression`. The variable is added to the variables
-       metainformation for this file.
+       meta-information for this file.
 11. The `*[` prefix works in exactly the same way as the variable assignment except it is ephemeral; the variable is
-    not added to the global metainformation list.
+    not added to the global meta-information list.
 12. Anything that is a valid expression syntax (reminder: `?{...}`) is expected to be:
     1. Run an action and return its value.
     2. Fetch the value of a variable.

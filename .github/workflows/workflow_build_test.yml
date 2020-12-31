@@ -1,5 +1,7 @@
+name: "Build and Test"
 on: [push]
 
+#
 # For each push, check that the project builds and tests pass (and run coverage if applicable).
 #
 # Common tasks include:
@@ -12,6 +14,22 @@ on: [push]
 # - Set version and check if git diff exists.
 #
 
-#
-# TODO
-#
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    #
+    # TODO
+    #
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - uses: actions/checkout@v2
+
+    #
+    # TODO
+    #

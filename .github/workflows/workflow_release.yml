@@ -1,8 +1,10 @@
+name: "Release"
 on:
   push:
     tags:
       - "v*"
 
+#
 # Perform the integration and deployment tasks. Usual candidates include:
 #
 # - Create and store packages/images to a registry.
@@ -14,18 +16,18 @@ jobs:
   integration:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      #
-      # TODO
-      #
+    #
+    # TODO
+    #
 
   deployment:
     runs-on: ubuntu-latest
     needs: integration
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      #
-      # TODO
-      #
+    #
+    # TODO
+    #
