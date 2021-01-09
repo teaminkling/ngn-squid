@@ -8,7 +8,7 @@ Squid refers to:
 - Squid Transpiler.
 - Squid Engine.
 - Squid Editor.
-  - Contains a JavaScript Squid Implementation.
+    - Contains a JavaScript Squid Implementation.
 
 Squid Language is a lightweight and relatively simple (simpler than [ink](https://github.com/inkle/ink)) markup language
 for writing narrative-driven games. It is typed and is very easy to integrate to any programming language as it defines
@@ -163,7 +163,7 @@ at will.
 - You can jump to any library at any time.
 - You can see and edit any of the flags at any time.
 - You can see any of the engine's actions.
-  - You can write JavaScript actions in the inbuilt Squid Engine.
+    - You can write JavaScript actions in the inbuilt Squid Engine.
 - You can save and load states at whim.
 - You can execute actions at whim.
 
@@ -174,14 +174,13 @@ It allows you to fully play through the game you have written.
 You can read on how to [implement Squid Engine here](docs/engine.md). The gist is this:
 
 1. Implement an engine and API and create a map/dictionary data structure from string to callable. This gives a
-   string-based interface to execute tasks in-game at whim.
-2. Implement a way to read the JSON output (or deserialise the `.squid` file) and load in the files to memory on
-   load.
+   string-based interface to execute tasks in-game at a whim.
+2. Implement a way to read the JSON output (or deserialise the `.squid` file) and load in the files to memory on load.
 3. Implement a way to execute each node in-engine.
 
 ## Modding
 
-If your game wants narrative mods and you have a deserializer for the `.squid` format then it should be
+If your game wants narrative mods, and you have a deserializer for the `.squid` format then it should be
 fairly easy for people to make their own stories.
 
 Essentially your method for making your game is now:
