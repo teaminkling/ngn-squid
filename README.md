@@ -8,7 +8,7 @@ Squid refers to:
 - Squid Transpiler.
 - Squid Engine.
 - Squid Editor.
-    - Contains a JavaScript Squid Implementation.
+  - Contains a JavaScript Squid Implementation.
 
 Squid Language is a lightweight and relatively simple (simpler than [ink](https://github.com/inkle/ink)) markup language
 for writing narrative-driven games. It is typed and is very easy to integrate to any programming language as it defines
@@ -163,7 +163,7 @@ at will.
 - You can jump to any library at any time.
 - You can see and edit any of the flags at any time.
 - You can see any of the engine's actions.
-    - You can write JavaScript actions in the inbuilt Squid Engine.
+  - You can write JavaScript actions in the inbuilt Squid Engine.
 - You can save and load states at whim.
 - You can execute actions at whim.
 

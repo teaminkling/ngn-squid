@@ -19,7 +19,7 @@
 1. Fork the repository.
 2. Branch from `main` in your fork.
 3. Open pull requests (PRs) from your fork's new branch to our repository's `main` branch.
-  - A branch has exactly one corresponding issue and contributor.
+  a. A branch has exactly one corresponding issue and contributor.
 4. The branch should be named `issue-#`, e.g., `issue-31`.
 
 Note that any code must be in American English and any comments should be in Australian English. Errors will not be
@@ -38,8 +38,8 @@ An issue has:
 ## Slightly More Advanced Rules
 
 1. Nobody else will modify your branch.
-  - If you want to hand over the branch to somebody else, they must rebase your changes on their own branch. You
-    will then either close your own branch, or it will be closed when stale.
+  a. If you want to hand over the branch to somebody else, they must rebase your changes on their own branch. You
+     will then either close your own branch, or it will be closed when stale.
 2. If `main` is ahead of your branch, make yourself level with `main` by rebasing before submitting a pull request.
 3. Once it is on `main`, that's the truth. No more rewriting history!
 4. If anything goes stale, it may be closed at the maintainer's discretion.
